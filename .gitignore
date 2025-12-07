@@ -1,19 +1,17 @@
 /.gradle
-/build
-/out
-/out/
-*.class
-.DS_Store
-# Ignore compiled class files
-out/
-*.class
 
-# Ignore macOS system files
-.DS_Store
-target/
-
-# macOS
+.gradle
+build
+out
+*.class
 .DS_Store
 
 # Maven
 target/
+
+# IDEs and editors
+.idea/
+*.iml
+
+# macOS
+.DS_Store
