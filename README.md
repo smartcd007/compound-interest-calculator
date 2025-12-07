@@ -1,54 +1,84 @@
-# Compound Interest Calculator (Java)
+# Compound Interest Calculator
 
-Simple console app to compute compound interest.
+A small, well-tested Java console application that calculates compound interest using the
+standard formula.
 
 ## Formula
 
-A = P * (1 + r/n)^(n*t)
+This project implements the compound interest formula:
 
-- P: Principal
-- r: Annual interest rate (decimal), e.g. 7.5% = 0.075
-- n: Times compounded per year (12=monthly, 4=quarterly, 1=yearly)
-- t: Years (integer in this version)
+> A = P × (1 + r / n)^(n × t)
 
-## Build & Run (Gradle)
+Where:
 
-This repository now uses Gradle with the standard Java layout (sources under
-`src/main/java`, tests under `src/test/java`). A simple JUnit 5 test has been
-added for the calculation logic and a GitHub Actions workflow (`.github/workflows/ci.yml`)
-was added to run the build on push/PR.
+- `P` — principal amount
+- `r` — annual interest rate (decimal, e.g. `0.05` for 5%)
+- `n` — number of times interest is compounded per year
+- `t` — number of years
 
-If you have Gradle installed you can build and run tests with:
+## Features
 
-```bash
-gradle build
-gradle test
-```
+- Simple interactive CLI for computing compound interest
+- Core calculation covered by JUnit 5 tests
+- Maven build for reproducible builds and tests
 
-The repository also includes Gradle wrapper scripts (`gradlew`, `gradlew.bat`) and
-`gradle/wrapper/gradle-wrapper.properties`. If the wrapper JAR is missing or not
-functional in the repository, regenerate it locally with a working Gradle installation:
+## Quick Start
 
-```bash
-# regenerate wrapper (requires local Gradle)
-gradle wrapper --gradle-version 8.4.1
-chmod +x ./gradlew
-```
+Prerequisites:
 
-Quick non-Gradle test (works without Gradle; useful for a quick sanity run):
+- Java 11+ installed
+- Maven 3.6+ installed
+
+Build and run tests from the project root:
 
 ```bash
-mkdir -p build/classes
-javac -d build/classes src/main/java/CompoundInterest.java
-printf "1000\n5\n12\n10\n" | java -cp build/classes CompoundInterest
+mvn clean test
 ```
 
-This will run the program with sample input (principal=1000, rate=5%, monthly compounding for 10 years).
-
-Old manual commands (kept for reference):
+Package the application:
 
 ```bash
-find src -name "*.java" > sources.txt
-javac @sources.txt -d out
-java -cp out CompoundInterest
+mvn clean package
 ```
+
+Run the console app (after `mvn package`) using the compiled classes:
+
+```bash
+java -cp target/classes com.smartcd007.compound.CompoundInterest
+```
+
+The program will prompt for the necessary values (principal, rate, compound frequency, years)
+and then print the final amount.
+
+## Example
+
+Example input/interaction (user input is shown after the prompts):
+
+```
+Principal (P): 1000
+Annual rate (r, e.g. 0.05): 0.05
+Compounds per year (n): 12
+Years (t): 10
+
+Result: Final amount after 10 years: 1647.01
+```
+
+## Project Structure
+
+- `src/main/java` — application source (`com.smartcd007.compound.CompoundInterest`)
+- `src/test/java` — unit tests (`CompoundInterestTest`)
+- `pom.xml` — Maven project configuration
+
+## Contributing
+
+Contributions are welcome. Please fork the repository, make changes on a feature branch, and
+open a pull request describing the change.
+
+## License
+
+This repository does not include an explicit license. If you want to make this project public
+with a permissive license, add a `LICENSE` file (for example, MIT or Apache-2.0).
+
+---
+
+Repository: https://github.com/smartcd007/compound-interest-calculator
