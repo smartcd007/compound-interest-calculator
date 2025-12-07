@@ -11,3 +11,9 @@ out/
 # Ignore macOS system files
 .DS_Store
 target/
+
+# macOS
+.DS_Store
+
+# Maven
+target/
