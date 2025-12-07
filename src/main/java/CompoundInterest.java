@@ -1,5 +1,5 @@
 
-// src/CompoundInterest.java
+// src/main/java/CompoundInterest.java
 import java.util.Scanner;
 
 public class CompoundInterest {
@@ -19,7 +19,7 @@ public class CompoundInterest {
     /**
      * The main method serves as the entry point for the Compound Interest
      * Calculator program.
-     * <p>
+     *
      * It prompts the user to input the principal amount, annual interest rate (as a
      * percentage),
      * the number of times interest is compounded per year, and the number of years.

@@ -1,3 +1,9 @@
+/.gradle
+/build
+/out
+/out/
+*.class
+.DS_Store
 # Ignore compiled class files
 out/
 *.class
